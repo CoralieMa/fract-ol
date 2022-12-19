@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:45:14 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/15 13:03:08 by cmartino         ###   ########.fr       */
+/*   Updated: 2022/12/19 10:35:34 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	ft_julia(t_mlx *mlx, t_fract fract)
 		while (y < HEIGHT)
 		{
 			iter = ft_calc_julia(fract, x, y);
-			if (iter == ITER_MAX)
-				my_mlx_pixel_put(mlx->img, x, y, 0x00ffffff);
+			ft_put_colors(mlx, x, y, iter);
 			++y;
 		}
 		++x;

@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:34:14 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/15 13:53:47 by cmartino         ###   ########.fr       */
+/*   Updated: 2022/12/19 13:23:54 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 #  define HEIGHT 720
 # endif
 # ifndef ITER_MAX
-#  define ITER_MAX 50
+#  define ITER_MAX 100
 # endif 
 
 typedef struct	s_fract {
@@ -77,5 +77,7 @@ void	ft_julia(t_mlx *mlx, t_fract fract);
 float	ft_atof(char *str);
 char	*ft_str_tolower(char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
+void	ft_put_colors(t_mlx *mlx, int x, int y, int iter);
+int		ft_trgb(unsigned char r, unsigned char g, unsigned char b);
 
 #endif

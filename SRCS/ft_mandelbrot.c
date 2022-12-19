@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:56:20 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/15 14:31:27 by cmartino         ###   ########.fr       */
+/*   Updated: 2022/12/19 10:27:32 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ void	ft_mandelbrot(t_mlx *mlx, t_fract fract)
 	int	y;
 	int	iter;
 
-	fract.zoom_x = WIDTH / (fract.x2 - fract.x1);
-	fract.zoom_y = HEIGHT / (fract.y2 - fract.y1);
 	fract.x1 = -2.1;
 	fract.x2 = 0.6;
 	fract.y1 = -1.2;
 	fract.y2 = 1.2;
+	fract.zoom_x = WIDTH / (fract.x2 - fract.x1);
+	fract.zoom_y = HEIGHT / (fract.y2 - fract.y1);
 	x = 0;
 	while (x < WIDTH)
 	{
@@ -50,8 +50,7 @@ void	ft_mandelbrot(t_mlx *mlx, t_fract fract)
 		while (y < HEIGHT)
 		{
 			iter = ft_calc_mandelbrot(fract, x, y);
-			if (iter == ITER_MAX)
-				my_mlx_pixel_put(mlx->img, x, y, 0x00ffffff);
+			ft_put_colors(mlx, x, y, iter);
 			++y;
 		}
 		++x;

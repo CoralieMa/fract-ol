@@ -6,6 +6,8 @@ FILE = main \
 		ft_julia \
 		ft_atof \
 		utils \
+		ft_colors \
+		ft_trgb \
 		ft_pas_encore_de_nom
 SRCS = $(addprefix SRCS/, $(addsuffix .c, $(FILE)))
 OBJS = $(SRCS:.c=.o)
