@@ -4,6 +4,7 @@ FILE = main \
 		ft_key_press \
 		ft_mandelbrot \
 		ft_julia \
+		ft_newton \
 		ft_atof \
 		utils \
 		ft_colors \

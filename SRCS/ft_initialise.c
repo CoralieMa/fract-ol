@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:48:56 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/15 14:19:29 by cmartino         ###   ########.fr       */
+/*   Updated: 2022/12/20 09:08:14 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	ft_init_wind(t_mlx *mlx)
 {
 	mlx->mlx = mlx_init();
 	mlx->wind = mlx_new_window(mlx->mlx, WIDTH, HEIGHT, "Fract-ol");
-	mlx->fract = 1;
 }
 
 void	ft_init_img(t_mlx *mlx)

@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/19 09:44:51 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/19 13:00:18 by cmartino         ###   ########.fr       */
+/*   Updated: 2022/12/20 09:13:20 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,4 +72,6 @@ void	ft_put_colors(t_mlx *mlx, int x, int y, int iter)
 		else if (iter < ITER_MAX)
 			my_mlx_pixel_put(mlx->img, x, y, ft_trgb(0xff, 0xff, ft_gradien2(iter, ITER_MAX / 2 )));
 	}
+	else if (iter == ITER_MAX)
+			my_mlx_pixel_put(mlx->img, x, y, 0x00000000);
 }
