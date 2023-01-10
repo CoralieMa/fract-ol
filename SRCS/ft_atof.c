@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:07:12 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/15 13:02:41 by cmartino         ###   ########.fr       */
+/*   Updated: 2022/12/20 12:33:58 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,3 @@ float	ft_atof(char *str)
 		nb += ft_coma(&str[i] + 1);
 	return (nb * sign);
 }
-
-// #include <stdio.h>
-
-// int main(int argc, char **argv)
-// {
-// 	printf("%f\n", ft_atof(argv[argc - 1]));
-// }

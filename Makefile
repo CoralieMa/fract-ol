@@ -1,19 +1,19 @@
 NAME = gogo
-FILE = main \
+FILE = fractol \
 		ft_initialise \
 		ft_key_press \
 		ft_mandelbrot \
 		ft_julia \
-		ft_newton \
 		ft_atof \
 		utils \
 		ft_colors \
-		ft_trgb \
-		ft_pas_encore_de_nom
+		ft_zoom \
+		ft_exit\
+		ft_fractal
 SRCS = $(addprefix SRCS/, $(addsuffix .c, $(FILE)))
 OBJS = $(SRCS:.c=.o)
 CC = gcc
-CFLAGS = -Wall -Werror -Wextra -Imlx -fsanitize=address -g 
+CFLAGS = -Wall -Werror -Wextra -O3 -Imlx -fsanitize=address -g 
 
 # ^^^^^^^^^^^^^ INCLUDING MINILIBX ^^^^^^^^^^^^^
 MLX_DIR = minilibx

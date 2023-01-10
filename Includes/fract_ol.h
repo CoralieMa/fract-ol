@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:34:14 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/20 11:43:54 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/10 10:14:13 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 #  define HEIGHT 720
 # endif
 # ifndef ITER_MAX
-#  define ITER_MAX 50
+#  define ITER_MAX 75
 # endif 
 
 typedef struct	s_fract {
@@ -43,16 +43,17 @@ typedef struct	s_fract {
 	float	i;
 	float	c_r;
 	float	c_i;
-	float	temp;
 	float 	zoom_x;
 	float	zoom_y;
+	float	zoomT;
+	float 	pos_x;
+	float	pos_y;
 	float	zoom;
 	float	centrum_x;
 	float	centrum_y;
-	float	x_min;
-	float	x_max;
-	float	y_min;
-	float	y_max;
+	float	a_x;
+	float	a_y;
+	int		cpt;
 	char	*type;
 }				t_fract;
 
@@ -67,25 +68,25 @@ typedef struct	s_data {
 typedef struct s_mlx {
 	void	*mlx;
 	void	*wind;
-	float	zoom;
 	t_fract	*fract;
 	t_data	*img;
 }				t_mlx;
 
 void	ft_init_wind(t_mlx *mlx);
 void	ft_init_img(t_mlx *mlx);
+t_fract ft_init_fract(void);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		ft_key_pressed(int key_code, void *param);
 int		ft_exit(void *param);
 int		ft_zoom(int button, int xm, int ym, t_mlx *mlx);
-void	ft_fractal(t_mlx *mlx, int argc, char **argv, float zoom);
-void	ft_mandelbrot(t_mlx *mlx, t_fract fract, float zoom);
-void	ft_julia(t_mlx *mlx, t_fract fract);
+void	ft_fractal(t_mlx *mlx, int argc, char **argv);
+void	ft_mandelbrot(t_mlx *mlx, float zoom);
+void	ft_julia(t_mlx *mlx);
 float	ft_atof(char *str);
 char	*ft_str_tolower(char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	ft_put_colors(t_mlx *mlx, int x, int y, int iter);
-int		ft_trgb(unsigned char r, unsigned char g, unsigned char b);
-void	ft_newton(t_mlx *mlx, t_fract fract);
+t_fract ft_init_fract(void);
+int	ft_zoom(int keycode, int x_m, int y_m, t_mlx *mlx);
 
 #endif
