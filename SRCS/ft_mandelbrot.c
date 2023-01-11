@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:56:20 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/10 10:50:41 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:51:17 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ void	ft_mandelbrot(t_mlx *mlx, float zoom)
 	mlx->fract->zoom_x = WIDTH / (mlx->fract->x2 - mlx->fract->x1);
 	mlx->fract->zoom_y = HEIGHT / (mlx->fract->y2 - mlx->fract->y1);
 	x = 0;
+	printf("%d\n", mlx->fract->cpt + ITER_MAX);
 	while (x < WIDTH)
 	{
 		y = 0;

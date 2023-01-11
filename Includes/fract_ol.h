@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:34:14 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/10 10:14:13 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:39:16 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,8 @@
 # define FRACT_OL_H
 
 # include <mlx.h>
-# include <math.h>
 # include <stdlib.h>
-# include <limits.h>
+# include <unistd.h>
 
 /* *************************************** */
 
@@ -77,7 +76,7 @@ void	ft_init_img(t_mlx *mlx);
 t_fract ft_init_fract(void);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		ft_key_pressed(int key_code, void *param);
-int		ft_exit(void *param);
+int		ft_exit(int code);
 int		ft_zoom(int button, int xm, int ym, t_mlx *mlx);
 void	ft_fractal(t_mlx *mlx, int argc, char **argv);
 void	ft_mandelbrot(t_mlx *mlx, float zoom);

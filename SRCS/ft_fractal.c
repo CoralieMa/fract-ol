@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 09:55:16 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/10 10:18:05 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:05:37 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	ft_fractal(t_mlx *mlx, int argc, char **argv)
 	else if (ft_strncmp(mlx->fract->type, "julia", 5) == 0)
 	{
 		if (argc < 4)
-			printf("error argument\n");
+			ft_exit(2);
 		else
 			ft_init_julia(mlx, argv);
 	}
 	else
-		printf("error argument\n");
+		ft_exit(1);
 	mlx_put_image_to_window(mlx->mlx, mlx->wind, mlx->img->img, 0, 0);
 }

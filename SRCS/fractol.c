@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:34:20 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/10 11:11:02 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/11 14:04:12 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_fract	fract;
 
 	if (argc < 2)
-		return (0);
+		ft_exit(3);
 	ft_init_wind(&mlx);
 	ft_init_img(&mlx);
 	fract = ft_init_fract();

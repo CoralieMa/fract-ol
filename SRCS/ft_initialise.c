@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 14:48:56 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/10 10:53:15 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:27:28 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_init_wind(t_mlx *mlx)
 	mlx->wind = mlx_new_window(mlx->mlx, WIDTH, HEIGHT, "Fract-ol");
 	mlx->fract = malloc(sizeof(t_fract) * 1);
 	if (!mlx->fract)
-		exit(1);
+		ft_exit(4);
 	mlx->fract = NULL;
 	mlx->img = NULL;
 }
@@ -28,6 +28,8 @@ void	ft_init_img(t_mlx *mlx)
 	t_data	*img;
 
 	img = malloc(sizeof(*img));
+	if (!img)
+		ft_exit(4);
 	img->img = mlx_new_image(mlx->mlx, WIDTH, HEIGHT);
 	img->addr = mlx_get_data_addr(img->img, &img->bits_per_pixel,
 			&img->line_length, &img->endian);

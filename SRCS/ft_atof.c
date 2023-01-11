@@ -6,13 +6,11 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 10:07:12 by cmartino          #+#    #+#             */
-/*   Updated: 2022/12/20 12:33:58 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/11 13:34:06 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fract_ol.h"
-
-// ***************************  NOTE : proteger atof ***************************
 
 static float	ft_coma(char *str)
 {
@@ -39,6 +37,7 @@ float	ft_atof(char *str)
 {
 	float	nb;
 	int		i;
+	int		j;
 	int		sign;
 
 	i = 0;
@@ -53,8 +52,11 @@ float	ft_atof(char *str)
 	}
 	while (str[i] == '0')
 		i ++;
+	j = i;
 	while (str[i] >= '0' && str[i] <= '9')
 		nb = nb * 10 + (str[i ++] - 48);
+	if (i - j > 9)
+		ft_exit(1);
 	if (str[i] == '.' || str[i] == ',')
 		nb += ft_coma(&str[i] + 1);
 	return (nb * sign);
