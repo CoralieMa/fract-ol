@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 09:45:18 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/12 15:07:18 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/12 15:36:48 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	ft_zoom(int keycode, int x_m, int y_m, t_mlx *mlx)
 	{
 		if (keycode == 5)
 		{
-			if (ITER_MAX + mlx->fract->cpt > 32)
-				mlx->fract->zoomT *= 0.75;
+			if (ITER_MAX + mlx->fract->cpt == 31)
+				mlx->fract->zoomT = 23.676970;
 			mlx->fract->zoomT *= 0.75;
 			mlx->fract->cpt += 4;
 			ft_fractal_zoom(mlx);
