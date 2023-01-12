@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 11:56:20 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/11 14:51:17 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:52:25 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@ int	ft_calc_mandelbrot(t_fract *fract, int x, int y)
 {
 	int		i;
 	float	temp;
-	int		iter;
 
 	fract->c_r = x / fract->zoom_x + fract->x1;
 	fract->c_i = y / fract->zoom_y + fract->y1;
 	fract->r = 0;
 	fract->i = 0;
 	i = 0;
-	iter = ITER_MAX + fract->cpt;
-	while ((fract->r * fract->r) + (fract->i * fract->i) < 4 && i < iter)
+	while ((fract->r * fract->r) + (fract->i * fract->i) < 4 && i < ITER_MAX + fract->cpt)
 	{
 		temp = fract->r;
 		fract->r = (fract->r * fract->r) - (fract->i * fract->i) + fract->c_r;
@@ -48,7 +46,7 @@ void	ft_mandelbrot(t_mlx *mlx, float zoom)
 	mlx->fract->zoom_x = WIDTH / (mlx->fract->x2 - mlx->fract->x1);
 	mlx->fract->zoom_y = HEIGHT / (mlx->fract->y2 - mlx->fract->y1);
 	x = 0;
-	printf("%d\n", mlx->fract->cpt + ITER_MAX);
+	printf("iter max = %d\n", ITER_MAX + mlx->fract->cpt);
 	while (x < WIDTH)
 	{
 		y = 0;

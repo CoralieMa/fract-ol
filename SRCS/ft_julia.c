@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 14:45:14 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/10 10:51:55 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:52:24 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int	ft_calc_julia(t_fract *fract, int x, int y)
 	fract->r = x / fract->zoom_x + fract->x1;
 	fract->i = y / fract->zoom_y + fract->y1;
 	i = 0;
-	while ((fract->r * fract->r) + (fract->i * fract->i) < 4 && i < ITER_MAX)
+	while ((fract->r * fract->r) + (fract->i * fract->i) < 4 && i < ITER_MAX + fract->cpt)
 	{
 		temp = fract->r;
 		fract->r = (fract->r * fract->r) - (fract->i * fract->i) + fract->c_r;
@@ -39,6 +39,7 @@ void	ft_julia(t_mlx *mlx)
 	mlx->fract->zoom_x = WIDTH / (mlx->fract->x2 - mlx->fract->x1);
 	mlx->fract->zoom_y = HEIGHT / (mlx->fract->y2 - mlx->fract->y1);
 	x = 0;
+	printf("iter max = %d\n", ITER_MAX + mlx->fract->cpt);
 	while (x < WIDTH)
 	{
 		y = 0;
