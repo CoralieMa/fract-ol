@@ -6,7 +6,7 @@
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 09:27:57 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/12 16:34:32 by cmartino         ###   ########.fr       */
+/*   Updated: 2023/01/18 14:28:09 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,18 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
+}
+
+int	ft_trgb(unsigned char r, unsigned char g, unsigned char b)
+{
+	return (*(int *)(unsigned char [4]){b, g, r, 0x00});
+}
+
+void	ft_infos(void)
+{
+	write(1, "\n\nUse the mouse wheel to zoom\n", 30);
+	write(1, "Press c -> gradient colors fractal\n", 36);
+	write(1, "Press v -> basis colors fractal\n", 33);
+	write(1, "Press b -> black & white fractal\n", 34);
+	write(1, "Press the cross or escape to quit\n\n", 36);
 }

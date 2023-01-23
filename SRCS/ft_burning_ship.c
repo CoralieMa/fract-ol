@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mandelbrot.c                                    :+:      :+:    :+:   */
+/*   ft_burning_ship.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmartino <cmartino@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 11:56:20 by cmartino          #+#    #+#             */
-/*   Updated: 2023/01/18 14:25:00 by cmartino         ###   ########.fr       */
+/*   Created: 2023/01/17 12:42:54 by cmartino          #+#    #+#             */
+/*   Updated: 2023/01/18 14:23:46 by cmartino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fract_ol.h"
 
-static int	ft_calc_mandelbrot(t_fract *fract, int x, int y)
+static int	ft_calc_burning_ship(t_fract *fract, int x, int y)
 {
 	int		i;
 	int		iter;
@@ -28,13 +28,14 @@ static int	ft_calc_mandelbrot(t_fract *fract, int x, int y)
 	{
 		temp = fract->r;
 		fract->r = (fract->r * fract->r) - (fract->i * fract->i) + fract->c_r;
-		fract->i = 2 * fract->i * temp + fract->c_i;
+		fract->r = fabs(fract->r);
+		fract->i = fabs(2 * fract->i * temp + fract->c_i);
 		++i;
 	}
 	return (i);
 }
 
-void	ft_mandelbrot(t_mlx *mlx)
+void	ft_burning_ship(t_mlx *mlx)
 {
 	int	x;
 	int	y;
@@ -52,7 +53,7 @@ void	ft_mandelbrot(t_mlx *mlx)
 		y = 0;
 		while (y < HEIGHT)
 		{
-			iter = ft_calc_mandelbrot(mlx->fract, x, y);
+			iter = ft_calc_burning_ship(mlx->fract, x, y);
 			ft_put_colors(mlx, x, y, iter);
 			++y;
 		}
